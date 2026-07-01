@@ -4,12 +4,13 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import CreateJob from './CreateJob';
+import JobBoard from './JobBoard';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <App />
-    <CreateJob />
+    <JobBoard />
   </React.StrictMode>
 );
 
