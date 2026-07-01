@@ -1,11 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
+import CreateJob from './CreateJob';
 
 function App() {
-
-
-
-  
 
   return (
     <div className="App">
