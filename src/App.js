@@ -2,10 +2,16 @@ import logo from './logo.svg';
 import './App.css';
 
 function App() {
+
+
+
+  
+
   return (
     <div className="App">
+      <h1>Welcome to My First React App!</h1>
       <Restaurants/>
-      <Restaurants/>
+      <VariableDisplay/>
     </div>
   );
 }
@@ -18,5 +24,36 @@ function Restaurants() {
     </div>
   );
 }
+
+function VariableDisplay() {
+  let stringVariable = "Hello, World!";
+  let numberVariable = 42;
+  let booleanVariable = true;
+  let arrayVariable = [1, 2, 3, 4, 5];
+  let objectVariable = { name: "John", age: 30 };
+
+   if (Math.random() > 0.5) {
+    stringVariable = "Hello, React!";
+    numberVariable = 100;
+    booleanVariable = false;
+    arrayVariable = [10, 20, 30];
+    objectVariable = { name: "Jane", age: 25 };
+  }
+
+  return (
+    <div>
+      <h2>Variable Display</h2>
+      <p>String Variable: {stringVariable}</p>
+      <p>Number Variable: {numberVariable}</p>
+      <p>Boolean Variable: {booleanVariable}</p>
+      <p>Array Variable: {arrayVariable}</p>
+      <p>Object Variable: Name - {objectVariable.name}, Age - {objectVariable.age}</p>
+    </div>
+  );
+}
+
+
+
+
 
 export default App;
