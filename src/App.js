@@ -11,7 +11,7 @@ function App() {
     <div className="App">
       <h1>Welcome to My First React App!</h1>
       <Restaurants/>
-      <VariableDisplay/>
+      <VariableDisplay />
     </div>
   );
 }
@@ -40,16 +40,34 @@ function VariableDisplay() {
     objectVariable = { name: "Jane", age: 25 };
   }
 
+  function greetUser(name) {
+    return <span>Hello, {name}!</span>;
+  }
+
+  function ArrayList({items}) {
+    return (
+      <ul>
+        {items.map((item, index) => (
+          <li key={index}>{item}</li>
+        ))}
+      </ul>
+    );
+  }
+
   return (
     <div>
       <h2>Variable Display</h2>
+      <h1>{greetUser(objectVariable.name)}</h1>
       <p>String Variable: {stringVariable}</p>
       <p>Number Variable: {numberVariable}</p>
       <p>Boolean Variable: {booleanVariable}</p>
       <p>Array Variable: {arrayVariable}</p>
+      <ArrayList items={arrayVariable} />
       <p>Object Variable: Name - {objectVariable.name}, Age - {objectVariable.age}</p>
     </div>
   );
+
+  
 }
 
 
