@@ -2,7 +2,7 @@ import React from 'react'
 
 const JobBoard = () => {
     const companyName = "Redacted";
-    const jobCount = 19;
+    const jobCount = 0;
     const getJobMessage = () => {
 
         //return jobCount === 0 ? "No jobs available" : `There are ${jobCount} jobs available at ${companyName}. There will be approximately ${Math.floor(jobCount * 1.5)} new jobs posted next week.`;
@@ -18,8 +18,10 @@ const JobBoard = () => {
 
         switch (true) {
             case jobCount === 0:
-                return "No jobs available";
+                //returning JSX elemtent instead of string to display message in red color
+                return (<p style={{ color: 'red' }}><strong>No jobs available</strong></p>);
             case jobCount >=0 && jobCount < 10:
+                //return template literal with jobCount and companyName variables
                 return `There are plenty of jobs available (${jobCount}) at ${companyName}. There will be approximately ${Math.floor(jobCount * 1.5)} new jobs posted next week.`;
             case jobCount >= 10 && jobCount < 20:
                 return `There are a moderate number of jobs available (${jobCount}) at ${companyName}. There will be approximately ${Math.floor(jobCount * 1.5)} new jobs posted next week.`;
