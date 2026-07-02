@@ -41,8 +41,11 @@ const JobBoard = () => {
         }
     }
     const resetJobCount = () => {
-        setProductionJobCount(0);
-        setDevelopmentJobCount(0);
+        if (jobenvironment === "production") {
+            setProductionJobCount(0);
+        } else {
+            setDevelopmentJobCount(0);
+        }
     }
 
 
