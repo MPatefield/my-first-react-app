@@ -1,8 +1,7 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 
 const JobBoard = () => {
     const companyName = "Redacted";
-    const [disabledProperty, setDisabledProperty] = useState(false);
     const pStyle = {
         color: 'blue',
         fontSize: '20px',
@@ -14,14 +13,16 @@ const JobBoard = () => {
         fontWeight: 'bold',
         textAlign: 'center'
     }
-    const toggleDisabledProperty = () => {
-        setDisabledProperty(!disabledProperty);
+    //Using useState hook to manage jobCount state
+    const [jobCount, setJobCount] = useState(0);
+    //Function to increase jobCount state by 1
+    const increaseJobCount = () => {
+        setJobCount(jobCount + 1);
     }
-    const jobCount = 60;
     const getJobMessage = () => {
 
         //return jobCount === 0 ? "No jobs available" : `There are ${jobCount} jobs available at ${companyName}. There will be approximately ${Math.floor(jobCount * 1.5)} new jobs posted next week.`;
-        
+
         /*if (jobCount === 0) {
             return "No jobs available";
         } else if (jobCount < 10){
@@ -35,7 +36,7 @@ const JobBoard = () => {
             case jobCount === 0:
                 //returning JSX elemtent instead of string to display message in red color
                 return (<span style={{ color: 'red' }}><strong>No jobs available</strong></span>);
-            case jobCount >=0 && jobCount < 10:
+            case jobCount >= 0 && jobCount < 10:
                 //return template literal with jobCount and companyName variables
                 return `There are plenty of jobs available (${jobCount}) at ${companyName}. There will be approximately ${Math.floor(jobCount * 1.5)} new jobs posted next week.`;
             case jobCount >= 10 && jobCount < 20:
@@ -46,18 +47,16 @@ const JobBoard = () => {
                 return `There are a huge number of jobs available (${jobCount}) at ${companyName}. There will be approximately ${Math.floor(jobCount * 1.5)} new jobs posted next week.`;
         }
     }
-  return (
-    <div>
-        {/*Using style object to style the h1 element*/}
-        <h1 style={h1Style}>{companyName} Job Board</h1>
-        {/*Using style object to style the paragraph element*/}
-        <p style={pStyle}>{getJobMessage()}</p>
-        {/*Using inline style to style the button element*/}
-        <button className="create-job-button" style={{color: 'black', backgroundColor: 'lightgray', border: '1px solid #ccc', borderRadius: '5px', padding: '10px'}} disabled={disabledProperty} value="Create Job" onClick={toggleDisabledProperty}>
-            Create a Job
-        </button>
-    </div>
-  )
+    return (
+        <div>
+            {/*Using style object to style the h1 element*/}
+            <h1 style={h1Style}>{companyName} Job Board</h1>
+            {/*Using style object to style the paragraph element*/}
+            <p style={pStyle}>{getJobMessage()}</p>
+            {/*Using inline style to style the button element*/}
+            <button className="create-job-button" style={{ color: 'black', backgroundColor: 'lightgray', border: '1px solid #ccc', borderRadius: '5px', padding: '10px' }} value="Create Job" onClick={increaseJobCount}>Create a Job</button>
+        </div>
+    )
 }
 
 export default JobBoard
