@@ -1,7 +1,22 @@
-import React from 'react'
+import React, {useState} from 'react';
 
 const JobBoard = () => {
     const companyName = "Redacted";
+    const [disabledProperty, setDisabledProperty] = useState(false);
+    const pStyle = {
+        color: 'blue',
+        fontSize: '20px',
+        fontWeight: 'bold'
+    }
+    const h1Style = {
+        color: 'green',
+        fontSize: '30px',
+        fontWeight: 'bold',
+        textAlign: 'center'
+    }
+    const toggleDisabledProperty = () => {
+        setDisabledProperty(!disabledProperty);
+    }
     const jobCount = 60;
     const getJobMessage = () => {
 
@@ -33,8 +48,14 @@ const JobBoard = () => {
     }
   return (
     <div>
-        <h1>{companyName} Job Board</h1>
-        <p>{getJobMessage()}</p>
+        {/*Using style object to style the h1 element*/}
+        <h1 style={h1Style}>{companyName} Job Board</h1>
+        {/*Using style object to style the paragraph element*/}
+        <p style={pStyle}>{getJobMessage()}</p>
+        {/*Using inline style to style the button element*/}
+        <button className="create-job-button" style={{color: 'black', backgroundColor: 'lightgray', border: '1px solid #ccc', borderRadius: '5px', padding: '10px'}} disabled={disabledProperty} value="Create Job" onClick={toggleDisabledProperty}>
+            Create a Job
+        </button>
     </div>
   )
 }
