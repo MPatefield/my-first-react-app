@@ -1,14 +1,15 @@
 import logo from './logo.svg';
 import './App.css';
 import CreateJob from './CreateJob';
+import JobBoard from './JobBoard';
+import DynamicForm from './DynamicForm';
 
 function App() {
 
   return (
     <div className="App">
       <h1>Welcome to My First React App!</h1>
-      <Restaurants/>
-      <VariableDisplay />
+      <DynamicForm />
     </div>
   );
 }

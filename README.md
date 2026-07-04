@@ -1,3 +1,24 @@
+Dynamic Input Form (React)
+A controlled form component built with React's useState hook, demonstrating core state management patterns beyond basic form binding.
+Skills demonstrated:
+
+Controlled inputs — syncing DOM <input> state via value + onChange, avoiding the uncontrolled/controlled switching pitfall
+State-derived values — computing character count from existing state rather than duplicating it in a separate useState
+Immutable array updates — using spread syntax ([...list, item]) to update array state safely, avoiding direct mutation with .push()
+List rendering with .map() and stable key props
+Form validation with conditional error messaging, using short-circuit (&&) conditional rendering
+Debugging real-world React gotchas: component naming case-sensitivity (PascalCase vs camelCase) and its effect on JSX tag resolution; stale closures when reading state immediately after calling a setter
+
+Tech: React, useState, JSX, controlled components
+
+
+
+
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

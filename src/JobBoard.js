@@ -17,20 +17,20 @@ const JobBoard = () => {
         color: 'orange',
         fontSize: '25px',
     }
-    const [jobenvironment, setJobEnvironment] = useState("production");
+    const [jobEnvironment, setJobEnvironment] = useState("production");
     //Using useState hook to manage jobCount state
     const [developmentJobCount, setDevelopmentJobCount] = useState(0);
     const [productionJobCount, setProductionJobCount] = useState(0);
     //Function to increase jobCount state by 1
     const increaseJobCount = () => {
-        if (jobenvironment === "production") {
+        if (jobEnvironment === "production") {
             setProductionJobCount(productionJobCount + 1);
         } else {
             setDevelopmentJobCount(developmentJobCount + 1);
         }
     }
     const decreaseJobCount = () => {
-        if (jobenvironment === "production") {
+        if (jobEnvironment === "production") {
             if (productionJobCount > 0) {
                 setProductionJobCount(productionJobCount - 1);
             }
@@ -41,7 +41,7 @@ const JobBoard = () => {
         }
     }
     const resetJobCount = () => {
-        if (jobenvironment === "production") {
+        if (jobEnvironment === "production") {
             setProductionJobCount(0);
         } else {
             setDevelopmentJobCount(0);
@@ -51,7 +51,7 @@ const JobBoard = () => {
 
     const changeJobEnvironment = () => {
         //Using ternary operator to toggle between production and development environment
-        setJobEnvironment(jobenvironment === "production" ? "development" : "production");
+        setJobEnvironment(jobEnvironment === "production" ? "development" : "production");
     }
 
     const getJobMessage = () => {
@@ -82,33 +82,33 @@ const JobBoard = () => {
                 return `There are a huge number of jobs available (${jobCount}) at ${companyName}. There will be approximately ${Math.floor(jobCount * 1.5)} new jobs posted next week.`;
         }*/
 
-        if (jobenvironment === "production" && productionJobCount === 0) {
+        if (jobEnvironment === "production" && productionJobCount === 0) {
             return (
                 <div>
                     <span style={{ color: 'red' }}><strong>No jobs available</strong></span>
                 </div>
             );
-        } else if (jobenvironment === "production" && productionJobCount < 10) {
+        } else if (jobEnvironment === "production" && productionJobCount < 10) {
             return `There are plenty of jobs available (${productionJobCount}) at ${companyName}. There will be approximately ${Math.floor(productionJobCount * 1.5)} new jobs posted next week.`;
-        } else if (jobenvironment === "production" && productionJobCount < 20) {
+        } else if (jobEnvironment === "production" && productionJobCount < 20) {
             return `There are a moderate number of jobs available (${productionJobCount}) at ${companyName}. There will be approximately ${Math.floor(productionJobCount * 1.5)} new jobs posted next week.`;
-        } else if (jobenvironment === "production" && productionJobCount < 50) {
+        } else if (jobEnvironment === "production" && productionJobCount < 50) {
             return `There are loads of jobs available (${productionJobCount}) at ${companyName}. There will be approximately ${Math.floor(productionJobCount * 1.5)} new jobs posted next week.`;
-        } else if (jobenvironment === "production" && productionJobCount >= 50) {
+        } else if (jobEnvironment === "production" && productionJobCount >= 50) {
             return `There are a huge number of jobs available (${productionJobCount}) at ${companyName}. There will be approximately ${Math.floor(productionJobCount * 1.5)} new jobs posted next week.`;
         }
 
-        if (jobenvironment === "development" && developmentJobCount === 0) {
+        if (jobEnvironment === "development" && developmentJobCount === 0) {
             return (
                 <div>
                     <span style={{ color: 'red' }}><strong>No jobs available</strong></span>
                 </div>
             );
-        } else if (jobenvironment === "development" && developmentJobCount < 10) {
+        } else if (jobEnvironment === "development" && developmentJobCount < 10) {
             return `There are plenty of jobs available (${developmentJobCount}) at ${companyName}. There will be approximately ${Math.floor(developmentJobCount * 1.5)} new jobs posted next week.`;
-        } else if (jobenvironment === "development" && developmentJobCount < 20) {
+        } else if (jobEnvironment === "development" && developmentJobCount < 20) {
             return `There are a moderate number of jobs available (${developmentJobCount}) at ${companyName}. There will be approximately ${Math.floor(developmentJobCount * 1.5)} new jobs posted next week.`;
-        } else if (jobenvironment === "development" && developmentJobCount < 50) {
+        } else if (jobEnvironment === "development" && developmentJobCount < 50) {
             return `There are loads of jobs available (${developmentJobCount}) at ${companyName}. There will be approximately ${Math.floor(developmentJobCount * 1.5)} new jobs posted next week.`;
         } else {
             return `There are a huge number of jobs available (${developmentJobCount}) at ${companyName}. There will be approximately ${Math.floor(developmentJobCount * 1.5)} new jobs posted next week.`;
@@ -119,7 +119,7 @@ const JobBoard = () => {
         <div>
             {/*Using style object to style the h1 element*/}
             <h1 style={h1Style}>{companyName} Job Board</h1>
-            {jobenvironment === "production" ? (
+            {jobEnvironment === "production" ? (
                 <p>Production Jobs: {productionJobCount}</p>
             ) : (
                 <p>Development Jobs: {developmentJobCount}</p>
@@ -130,7 +130,7 @@ const JobBoard = () => {
             <button className="create-job-button" style={{ margin: '10px 10px' }} value="Create Job" onClick={increaseJobCount}>Create a Job</button>
             <button className="remove-job-button" style={{ margin: '10px 10px' }} value="Remove Job" onClick={decreaseJobCount}>Remove a Job</button>
             <button className="reset-job-button" style={{ margin: '10px 10px' }} value="Reset Jobs" onClick={resetJobCount}>Reset Jobs</button>
-            <p>Current Job Environment: {jobenvironment}</p>
+            <p>Current Job Environment: {jobEnvironment}</p>
             <button className="change-environment-button" style={{ margin: '10px 10px' }} value="Change Environment" onClick={changeJobEnvironment}>Change Environment</button>
         </div>
     )

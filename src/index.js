@@ -5,12 +5,12 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import CreateJob from './CreateJob';
 import JobBoard from './JobBoard';
+import dynamicForm from './DynamicForm';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <App />
-    <JobBoard />
   </React.StrictMode>
 );
 
