@@ -5,14 +5,14 @@ import JobBoard from './JobBoard';
 import DynamicForm from './DynamicForm';
 import { useState } from 'react';
 import BotListManager from './BotListManager';
+import DynamicBotManager from './DynamicBotManager';
 
 function App() {
 
   return (
     <div className="App">
       <h1>Welcome to My First React App!</h1>
-      <DynamicForm />
-      <BotListManager />
+      <DynamicBotManager />
     </div>
   );
 }

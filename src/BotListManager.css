@@ -5,7 +5,7 @@
     border-radius: 5px;
     display: flex;
     justify-content: space-between;
-    max-width: 500px;
+    max-width: 600px;
     align-items: center;
 }
 
@@ -20,4 +20,23 @@
 
 .trigger-button:hover {
   background-color: #0056b3;
+}
+
+.delete-button {
+  background-color: #dc3545;
+  border-radius: 5px;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.delete-button:hover {
+  background-color: #c82333;
+}
+
+.bot-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
