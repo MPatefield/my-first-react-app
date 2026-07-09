@@ -3,9 +3,6 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import CreateJob from './CreateJob';
-import JobBoard from './JobBoard';
-import dynamicForm from './DynamicForm';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
