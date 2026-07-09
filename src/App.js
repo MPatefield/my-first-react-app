@@ -1,11 +1,11 @@
 import logo from './logo.svg';
 import './App.css';
-import CreateJob from './CreateJob';
-import JobBoard from './JobBoard';
-import DynamicForm from './DynamicForm';
+import CreateJob from './Components/CreateJob';
+import JobBoard from './Components/JobBoard';
+import DynamicForm from './Components/DynamicForm';
 import { useState } from 'react';
-import BotListManager from './BotListManager';
-import DynamicBotManager from './DynamicBotManager';
+import BotListManager from './Components/BotListManager';
+import DynamicBotManager from './Components/DynamicBotManager';
 
 function App() {
 

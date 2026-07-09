@@ -6,20 +6,28 @@ const DynamicBotManager = () => {
     { id: '2', name: 'Data Bot', status: 'Inactive' }
   ]);
 
+  // State to manage the new bot input fields
   const [newBot, setNewBot] = useState({ id: '', name: '', status: '' });
+  // State to manage the visibility of the bot list
+  const [show, setShow] = useState(false);
 
+  // Function to toggle the visibility of the bot list
+  const showHideBot = () => {
+    setShow(!show);
+  }
+  // Function to handle input changes for the new bot
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setNewBot({ ...newBot, [name]: value });
   };
-
+  // Function to add a new bot to the list
   const addBotToList = () => {
     if (newBot.id && newBot.name && newBot.status) {
       setBots([...bots, newBot]);
       setNewBot({ id: "", name: "", status: "" });
     }
   };
-
+  // Function to delete a bot from the list
   const deleteBot = (id) => {
     const updatedBots = bots.filter(bot => bot.id !== id);
     setBots(updatedBots);
@@ -48,16 +56,18 @@ return (
       <button onClick={addBotToList}>Add Bot</button>
     </div>
       <ul>
-        {bots.map((bot) => (
+        {/* Render the list of bots only if show is true */}
+        <button className="show-hide-toggle" onClick={() => showHideBot()}>Show/Hide</button>
+        {show && bots.map((bot) => (
           <li key={bot.id} className="bot-card">
-            <span >{bot.name} - <span style={{ color: bot.status === "Running" ? "green" : "red" }}>{bot.status}</span></span>
+            <span >{bot.name} - <span style={{ color: bot.status === "Active" ? "green" : "red" }}>{bot.status}</span></span>
             <button className="delete-button" onClick={() => deleteBot(bot.id)}>Delete</button>
           </li>
-        )
+        )  
         )}
       </ul>
     </div>
-    );
+    );  
 };
 
     export default DynamicBotManager;
