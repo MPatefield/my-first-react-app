@@ -3,6 +3,8 @@ import './App.css';
 import CreateJob from './CreateJob';
 import JobBoard from './JobBoard';
 import DynamicForm from './DynamicForm';
+import { useState } from 'react';
+import BotListManager from './BotListManager';
 
 function App() {
 
@@ -10,6 +12,7 @@ function App() {
     <div className="App">
       <h1>Welcome to My First React App!</h1>
       <DynamicForm />
+      <BotListManager />
     </div>
   );
 }

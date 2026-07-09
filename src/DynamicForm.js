@@ -7,22 +7,24 @@ const DynamicForm = () => {
     const [inputList, setInputList] = useState([]);
     const [error, setError] = useState("");
     console.log(inputValue);
+    // Handle input change
     const handleInputChange = (event) => {
         setInputValue(event.target.value);
         console.log(inputValue);
     }
-
+    // Handle reset button click
     const handleReset = () => {
         setInputValue("");
         setInputList([]);
     }
-
+    // Handle add button click
     const handleAdd = () => {
         if (!inputValue.trim()) {
             setError("Input cannot be empty");
         } else if (inputValue.length < 5) {
             setError("Input must be at least 5 characters long");
         } else {
+          // Add the input value to the list and reset the input field
             setInputList([...inputList, inputValue]);
             setInputValue("");
             setError("");
@@ -39,7 +41,7 @@ const DynamicForm = () => {
         placeholder="Type something..."
       />
       <button onClick={handleAdd}>Add</button>
-      <ul>
+      <ul style={{ listStyleType: "none", padding: 0 }}>
         {inputList.map((item, index) => (
           <li key={index}>{item}</li>
         ))}
