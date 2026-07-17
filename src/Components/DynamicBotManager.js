@@ -29,6 +29,7 @@ const DynamicBotManager = () => {
   };
   // Function to delete a bot from the list
   const deleteBot = (id) => {
+    // Filter out the bot with the specified id and update the state
     const updatedBots = bots.filter(bot => bot.id !== id);
     setBots(updatedBots);
   }

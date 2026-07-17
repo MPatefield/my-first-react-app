@@ -6,16 +6,31 @@ import DynamicForm from './Components/DynamicForm';
 import { useState } from 'react';
 import BotListManager from './Components/BotListManager';
 import DynamicBotManager from './Components/DynamicBotManager';
+import Names from './Components/Names';
+import JobList from './Components/JobList';
+
 
 function App() {
+
+const [jobs, setJobs] = useState([
+    { id: '1', name: 'Email Bot', status: 'Active' },
+    { id: '2', name: 'Data Bot', status: 'Inactive' }
+  ]);
+    const deleteJob = (id) => {
+    // Filter out the job with the specified id and update the state
+    const updatedJobs = jobs.filter(job => job.id !== id);
+    setJobs(updatedJobs);
+  }
 
   return (
     <div className="App">
       <h1>Welcome to My First React App!</h1>
-      <DynamicBotManager />
+      <JobList jobs={jobs} deleteJob={deleteJob} />
     </div>
   );
 }
+
+const names = ["John Doe", "Jane Smith", "Alice Johnson", "Bob Brown", "Charlie Davis"];
 
 function Restaurants() {
   return (
