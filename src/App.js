@@ -8,6 +8,7 @@ import BotListManager from './Components/BotListManager';
 import DynamicBotManager from './Components/DynamicBotManager';
 import Names from './Components/Names';
 import JobList from './Components/JobList';
+import StatusBoard from './Components/StatusBoard';
 
 
 function App() {
@@ -24,8 +25,7 @@ const [jobs, setJobs] = useState([
 
   return (
     <div className="App">
-      <h1>Welcome to My First React App!</h1>
-      <JobList jobs={jobs} deleteJob={deleteJob} />
+      <StatusBoard />
     </div>
   );
 }

@@ -1,0 +1,28 @@
+.status-board{
+    display: flex;
+    justify-content: space-around;
+}
+
+.completed {
+    background-color: lightgreen;
+    border: 1px solid darkgreen;
+    border-radius: 5px;
+    padding:20px;
+
+}
+
+.in-progress {
+    background-color: lightgoldenrodyellow;
+    border: 1px solid yellow;
+    border-radius: 5px;
+    padding:20px;
+    
+}
+
+.failed {
+    background-color: palevioletred;
+    border: 1px solid red;
+    border-radius: 5px;
+    padding:20px;
+    
+}
